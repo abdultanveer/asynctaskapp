@@ -16,7 +16,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void handleClick(View view) {
-        DownloadTask downloadTask = new DownloadTask(mProgressBar);
+        DownloadTask downloadTask = new DownloadTask(this,mProgressBar);
         downloadTask.execute("http://file url to download");//onPreExecute
+       /* if(!downloadTask.isCancelled()){
+            downloadTask.cancel(true);
+        }*/
     }
 }

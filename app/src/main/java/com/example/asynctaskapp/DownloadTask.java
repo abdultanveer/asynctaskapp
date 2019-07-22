@@ -1,17 +1,20 @@
 package com.example.asynctaskapp;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class DownloadTask extends AsyncTask<String ,Integer,Boolean > {
     ProgressBar progressBar;
     public static String TAG = DownloadTask.class.getSimpleName();
+    Context mContext;
 
-
-    public DownloadTask(ProgressBar mProgressBar) {
+    public DownloadTask(MainActivity mainActivity, ProgressBar mProgressBar) {
         progressBar = mProgressBar;
+        mContext = mainActivity;
     }
     //input type = url -- string
     //progress type = %downloaded -- integer
@@ -54,5 +57,6 @@ public class DownloadTask extends AsyncTask<String ,Integer,Boolean > {
     protected void onPostExecute(Boolean aBoolean) {
         super.onPostExecute(aBoolean);
         progressBar.setVisibility(View.GONE);
+        Toast.makeText(mContext, "download finished", Toast.LENGTH_SHORT).show();
     }
 }
