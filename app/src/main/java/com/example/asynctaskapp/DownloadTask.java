@@ -35,7 +35,7 @@ public class DownloadTask extends AsyncTask<String ,Integer,Boolean > {
         for(int i=0; i<totalSecs;i++){
             try {
                 Thread.sleep(300);
-                i += 5;  //i = i+10
+                //i += 5;  //i = i+10
                 publishProgress(i); //onProgressUpdate
                 //i am sending a progress[%age downloaded] to the ui thread
             } catch (InterruptedException e) {
